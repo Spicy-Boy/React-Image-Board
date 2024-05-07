@@ -23,6 +23,15 @@ class CatalogItem extends Component {
             threadThumbnailUrl = thread.posts[0].img;
         }
 
+        let numberOfImageReplies = -1;
+        thread.posts.forEach((post) => {
+            if (post.img)
+            {
+                numberOfImageReplies++;
+            }
+        });
+        numberOfImageReplies--;
+
         return (
             <>
                 <div className="thread-post" 
@@ -33,8 +42,13 @@ class CatalogItem extends Component {
                     {/* {thread.threadNo} */}
                     {/* NOTE vvv href points to nothing YET */}
                     <a href="#">
-                        <img src={threadThumbnailUrl}/>
+                        <img src={threadThumbnailUrl} alt="Thumbnail for dynamically generated thread link.." />
                     </a>
+                    <div className="thread-information">
+                        <span>
+                            R:<b> {thread.posts.length}</b> / I:<b>{numberOfImageReplies}</b>
+                        </span>
+                    </div>
                 </div>
             </>
         );
