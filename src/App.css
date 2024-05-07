@@ -1,38 +1,315 @@
-.App {
+:root {
+
+  /* VARIABLES */
+  --thread-post-width: 150px;
+  --thread-post-height: 250px;
+}
+
+body {
+  font-family: arial,helvetica,sans-serif;
+  padding: 3px;
+  background-color: #e3e7f8;
+
+}
+
+.wrapper-main {
+  margin: 0 auto;
+  
+}
+
+
+.banner {
+  text-align: center;
+}
+.banner img {
+  max-width: 40%;
+}
+.banner h2 {
+  /* font-size: ; */
+  /* margin-top: 0; */
+}
+.banner h3 {
+  margin-bottom: 0;
+}
+
+/* the new thread form doesn't display until you click the link "create a new thread */
+#new-thread-form {
+  display: none;
+}
+
+/* vvv ensures that all labels are aligned and same width */
+.form-group label {
+  display: inline-block;
+  width: 75px; /* Adjust the width as needed */
+  text-align: left;
+  margin-right: 10px;
+}
+.form-group textarea {
+  width: 200px;
+}
+#img-url-bar {
+  width: 200px;
+}
+#urlSubmission {
+  display: none;
+}
+#imgCheckbox {
+  font-size: 10px;
+}
+
+/* navigation buttons like top, bottom, sort */
+.options {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  /* display: inline-block; */
+}
+.options ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  /* width: 50%; */
+}
+.options li {
+  margin: 0;
+  padding: 0;
+  display: inline;
+}
+
+.right-justify{
+  float: right;
+}
+
+.options a {
+  color: blue;
+  text-decoration: none;
+  font-size: 90%;
+}
+.options a:visited {
+  color: blue;
+}
+
+.options a:hover {
+  color: red;
+}
+
+.greeting-username {
+  font-size: 16px;
+  color: rgb(0, 150, 0);
+  margin-bottom: -0.2em;
+  text-decoration: underline;
+}
+
+.catalog {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
+}
+/* thread-posts are the container for the teaser, 
+they link to a thread from catalog vvv */
+.thread-post {
+
+  width: var(--thread-post-width);
+  margin: 10px;
+  text-align: center;
+
+  max-height: var(--thread-post-height);
+
+  overflow: hidden;
+}
+/* thumbnail vvv */
+.thread-post img {
+  box-shadow: 0 0 5px rgba(0,0,0,.25);
+  max-width: var(--thread-post-width);
+  max-height: 150px;
+  /* max-height: calc(var(--thread-post-height) / 1.5); */
+}
+.thread-information span{
+  margin: 0;
+  font-size: 8pt;
+}
+/* vvv the text displayed in an individual thread-post in catalog */
+.teaser {
+  font-size: 10pt;
+  /* max-height: var(--thread-post-height); */
+  word-wrap: break-word;
+}
+/*  0)_(0  **licks you** */
+/* POSTS in THREADS! */
+.thread {
+  /* thread flex is disabled in media query for desktop */
+  min-height: 300px;
+  display: flex;
+  flex-direction: column;
+}
+/* THREAD ^^ ^^ */
+.reply-arrows {
+  color: #9a9da8;
+  margin-right: 2px;
+  margin-left: 2px;
+  padding-top: 6px;
+}
+
+.post-container {
+  display: flex;
+  flex-direction: row;
+  /* min-width: 200px; */
+}
+
+
+/* vvv posts that aren't the OP (first post) */
+.post-reply {
+  background-color: #d6daf0;
+  margin-top: 2px;
+  margin-bottom: 2px;
+  padding: 5px;
+  border-bottom: 1px solid #b7c5d9;
+}
+/* vvv posts that ARE the original post! */
+.post-container-OP {
+  /* min-width: 100px; */
+}
+.post-OP {
+  margin-top: 2px;
+  margin-bottom: 2px;
+  padding: 5px;
+}
+.post-thumbnail-OP {
+  float: left;
+  max-width: 200px;
+  max-height: 200px;
+  margin-right: 15px;
+  margin-bottom: 5px;
+}
+
+/* for referenced posts vv */
+.popup {
+  position: absolute;
+  /* position: relative; */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  z-index: 9999;
+  border: 1px solid #b7c5d9;
+  /* min-height: 125px;
+  min-width: 125px; */
+  box-sizing: border-box;
+}
+.highlighted {
+  background-color: #d6bad0;
+}
+.perma-highlighted {
+  background-color: #d6bad0;
+}
+
+.post-img-header {
+  padding-bottom: 2px;
+  padding-top: 2px;
+  font-size: 10pt;
+}
+.post-user-information {
+  padding-bottom: 2px;
+  font-size: 10pt;
+}
+.username {
+  color: #2c845a;
+}
+/* vv when a user references this post, add link to this span */
+.replies {
+  font-size: 8pt;
+}
+.replies a {
+  color: #34345c;
+}
+.replies a:visited {
+  color: #34345c;
+}
+.replies a:hover {
+  color: red;
+}
+.post-thumbnail {
+  max-width: 125px;
+  max-height: 125px;
+  float: left;
+  margin-right: 10px;
+  margin-bottom: 2px;
+}
+.post-message {
+  font-size: 10pt;
+}
+
+.reply-link:hover {
+  color: red;
+}
+
+.literally-the-word-replies {
+  display: none;
+}
+
+/* USER PAGE */
+.thread-information {
+  font-size: 14px;
+}
+
+.user-portal-post-container {
+  display: flex;
+  flex-direction: row;
+  flex-basis: 35%;
+}
+
+/* pure utility classes vvv */
+
+.preserve-whitespace {
+  white-space: pre-line;
+}
+
+.flex-centered {
+  display: flex; 
+  justify-content: center;
+}
+.flex-space-around {
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+}
+.flex-space-around h4{
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.flex-basis-45 {
+  flex-basis: 45%;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+.warning-text {
+  color: rgb(190, 0, 0);
+}
+
+/* DESKTOP style, screens > 800 pixels ;) */
+@media (min-width: 800px) {
+  .banner h2 {
+      font-size: 1.5em;
   }
-}
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+  .form-group textarea {
+      width: 500px;
   }
-  to {
-    transform: rotate(360deg);
+
+  .thread {
+      display: block;
+  }
+
+  .post-thumbnail-OP {
+      max-width: 250px;
+      max-height: 250px;
+  }
+
+  .post-container {
+  
+      max-width: 75%;
+  }
+
+  /*User Page*/
+  .flex-space-around {
+      flex-direction: row;
   }
 }
