@@ -49,6 +49,10 @@ class CatalogItem extends Component {
                             R:<b> {thread.posts.length}</b> / I:<b>{numberOfImageReplies}</b>
                         </span>
                     </div>
+                    <div className="teaser">
+                        <b>{thread.title}</b>
+                        {thread.posts[0].textContent}
+                    </div>
                 </div>
             </>
         );
