@@ -35,9 +35,9 @@ class CatalogItem extends Component {
         return (
             <>
                 <div className="thread-post" 
-                data-threadNo={thread.threadNo}
-                data-numberOfPosts={thread.posts.length}
-                // data-dateOfMostRecentPost={thread.posts[thread.posts.length-1].createdAt.getTime()}
+                data-threadno={thread.threadNo}
+                data-numberofposts={thread.posts.length}
+                data-dateofmostrecentpost={new Date(thread.posts[thread.posts.length-1].createdAt).getTime()}
                 >
                     {/* {thread.threadNo} */}
                     {/* NOTE vvv href points to nothing YET */}
@@ -50,7 +50,7 @@ class CatalogItem extends Component {
                         </span>
                     </div>
                     <div className="teaser">
-                        <b>{thread.title}</b>
+                        <b>{thread.title} </b>
                         {thread.posts[0].textContent}
                     </div>
                 </div>

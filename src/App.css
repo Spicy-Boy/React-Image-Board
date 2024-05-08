@@ -295,7 +295,8 @@ they link to a thread from catalog vvv */
     flex-direction: row;
   }
   .thread-pane {
-    flex-basis: 55%;
+    /* flex-basis: 55%; */
+    min-width: 400px;
   }
   
   .banner h2 {

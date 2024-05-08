@@ -6,7 +6,7 @@ class ThreadView extends Component
     {
         return (
             <div className="thread-pane" id="thread-pane">
-                hi
+                       <div class="thread"></div>
             </div>
         );
     }
