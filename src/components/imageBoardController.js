@@ -47,7 +47,7 @@ class ImageBoardController extends Component
 
                     <Catalog serverIP={this.state.serverIP} threads={this.state.threads} selectThread={this.selectThread}/>
 
-                    <ThreadView selectedThread={this.state.selectedThread}/>
+                    <ThreadView thread={this.state.selectedThread}/>
                 </div>
             </div>
         );
