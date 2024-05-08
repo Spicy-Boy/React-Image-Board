@@ -35,9 +35,14 @@ class CatalogItem extends Component {
         return (
             <>
                 <div className="thread-post" 
+                
                 data-threadno={thread.threadNo}
+                
                 data-numberofposts={thread.posts.length}
+                
                 data-dateofmostrecentpost={new Date(thread.posts[thread.posts.length-1].createdAt).getTime()}
+
+                onClick={() => this.props.selectThread(this.props.thread)}
                 >
                     {/* {thread.threadNo} */}
                     {/* NOTE vvv href points to nothing YET */}

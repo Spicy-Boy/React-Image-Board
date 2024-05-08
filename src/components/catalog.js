@@ -22,7 +22,7 @@ class Catalog extends Component
                 <div className="catalog">
                     {this.props.threads.map((thread)=>{
                         return (
-                            <CatalogItem key={thread.threadNo} thread={thread} serverIP={this.props.serverIP}/>
+                            <CatalogItem key={thread.threadNo} thread={thread} serverIP={this.props.serverIP} selectThread={this.props.selectThread}/>
                         );
                     })}
                 </div>

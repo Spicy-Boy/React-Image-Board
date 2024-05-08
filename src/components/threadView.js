@@ -6,7 +6,10 @@ class ThreadView extends Component
     {
         return (
             <div className="thread-pane" id="thread-pane">
-                       <div class="thread"></div>
+                <div className="thread">
+                    {/* {this.props.thread.posts[0].textContent} */}
+                    hi
+                </div>
             </div>
         );
     }

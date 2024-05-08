@@ -15,10 +15,16 @@ class ImageBoardController extends Component
             serverIP: "108.49.99.17",
             selectedThread: null
         };
+
+        this.selectThread = this.selectThread.bind(this);
     }
 
+    selectThread(thread)
+    {
+        this.setState({selectedThread: thread});
+    }
     
-    //FETCH thread data from my api
+    //FETCH thread data from my api when app is mounted up
     componentDidMount()
     {
         // my IP for now: http://108.49.99.17/
@@ -38,8 +44,10 @@ class ImageBoardController extends Component
             <div className="wrapper-main">
                 <Header />
                 <div className="wrapper-panels">
-                    <Catalog serverIP={this.state.serverIP} threads={this.state.threads}/>
-                    <ThreadView selectedThread={this.state.threads}/>
+
+                    <Catalog serverIP={this.state.serverIP} threads={this.state.threads} selectThread={this.selectThread}/>
+
+                    <ThreadView selectedThread={this.state.selectedThread}/>
                 </div>
             </div>
         );
