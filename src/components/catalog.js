@@ -9,16 +9,18 @@ class Catalog extends Component
         super();
 
         this.state = {
-            threads: []
+            threads: [],
+            serverIP: "108.49.99.17"
         };
     }
 
+    //FETCH thread data from my api
     componentDidMount()
     {
         // my IP for now: http://108.49.99.17/
-        // axios.get("http://108.49.99.17/api/threads/getThread")
-        // .then((res) => this.setState({threads: res.data.results}))
-        fetch("http://108.49.99.17/api/threads/getThread")
+        //saved as a state in catalog.js
+        const serverIP = this.state.serverIP;
+        fetch("http://"+serverIP+"/api/threads/getThread")
         .then(res => res.json())  // Parse the JSON from the response
         .then((data) => {
             this.setState({threads: data.payload});
@@ -43,7 +45,7 @@ class Catalog extends Component
                 <div className="catalog">
                     {this.state.threads.map((thread)=>{
                         return (
-                            <CatalogItem key={thread.threadNo} thread={thread}/>
+                            <CatalogItem key={thread.threadNo} thread={thread} serverIP={this.state.serverIP}/>
                         );
                     })}
                 </div>

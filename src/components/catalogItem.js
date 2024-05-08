@@ -16,7 +16,7 @@ class CatalogItem extends Component {
         let threadThumbnailUrl = "";
         if (thread.posts[0].imgSize)
         {
-            threadThumbnailUrl = "http://108.49.99.17"+thread.posts[0].img;
+            threadThumbnailUrl = "http://"+this.props.serverIP+thread.posts[0].img;
         }
         else
         {

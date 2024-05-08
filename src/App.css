@@ -14,7 +14,12 @@ body {
 
 .wrapper-main {
   margin: 0 auto;
+
   
+}
+.wrapper-panels {
+  display: flex;
+  flex-direction: column;
 }
 
 
@@ -286,6 +291,13 @@ they link to a thread from catalog vvv */
 
 /* DESKTOP style, screens > 800 pixels ;) */
 @media (min-width: 800px) {
+  .wrapper-panels {
+    flex-direction: row;
+  }
+  .thread-pane {
+    flex-basis: 55%;
+  }
+  
   .banner h2 {
       font-size: 1.5em;
   }
