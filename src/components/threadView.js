@@ -14,7 +14,7 @@ class ThreadView extends Component
                     <div className="thread">
                         {/* {this.props.thread.posts[0].textContent} */}
                         {thread.posts.map((post, index)=>{
-                            return <Post post={post} index={index}/>
+                            return <Post key={post.postNo} post={post} index={index}/>
                         })}
                     </div>
                 </div>
@@ -22,8 +22,9 @@ class ThreadView extends Component
         } 
         else 
         {
+            const invisible= {display: "none"}
             return (
-                <div className="thread-pane" id="thread-pane">
+                <div className="thread-pane" id="thread-pane" style={invisible}>
                     <h4>Please select a thread!</h4>
                 </div>
             );
